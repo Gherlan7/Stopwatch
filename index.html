@@ -5,17 +5,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Stopwatch</title>
+    <script
+      src="https://kit.fontawesome.com/1f51e36a38.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="stopwatch">
       <h1 id="displayTime">00:00:00:00</h1>
       <div class="buttons">
-        <img src="images/stop.png" alt="Stop icon" onclick="watchStop()" />
-        <img src="images/start.png" alt="Start icon" onclick="watchStart()" />
-        <img src="images/reset.png" alt="Reset icon" onclick="watchReset()" />
+        <img
+          src="images/stop.png"
+          alt="Stop icon"
+          onclick="watchStop(); showToast(stopMsg)"
+        />
+        <img
+          src="images/start.png"
+          alt="Start icon"
+          onclick="watchStart(); showToast(startMsg)"
+        />
+        <img
+          src="images/reset.png"
+          alt="Reset icon"
+          onclick="watchReset(); showToast(resetMsg)"
+        />
       </div>
     </div>
+    <div id="toastBox"></div>
   </body>
+
   <script src="functions.js"></script>
 </html>

@@ -37,3 +37,24 @@ function watchReset() {
   [seconds, minutes, hours, milisec] = [0, 0, 0, 0];
   displayTime.innerHTML = "00:00:00:00";
 }
+let toastBox = document.getElementById("toastBox");
+let startMsg =
+  '<i class="fa-solid fa-stopwatch"></i>You have started the watch !';
+let stopMsg = '<i class="fa-solid fa-stop"></i>You have stopped the watch !';
+let resetMsg =
+  '<i class="fa-solid fa-backward"></i>You have restarted the watch !';
+function showToast(msg) {
+  let toast = document.createElement("div");
+  toast.classList.add("toast");
+  toast.innerHTML = msg;
+  toastBox.appendChild(toast);
+  if (msg.includes("stopped")) {
+    toast.classList.add("stopped");
+  }
+  if (msg.includes("restarted")) {
+    toast.classList.add("restarted");
+  }
+  setTimeout(() => {
+    toast.remove();
+  }, 5000);
+}
