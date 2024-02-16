@@ -16,6 +16,7 @@ body {
   text-align: center;
   padding: 40px 0;
   color: white;
+  border-radius: 50px;
   margin: 200px auto 0;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
 }
