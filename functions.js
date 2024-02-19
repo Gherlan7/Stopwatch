@@ -3,6 +3,7 @@ let displayTime = document.getElementById("displayTime");
 let timer = null;
 
 function stopwatch() {
+  //We calculate the number of miliseconds, seconds, minutes and hours
   milisec++;
   if (milisec == 100) {
     milisec = 0;
@@ -16,6 +17,7 @@ function stopwatch() {
       hours++;
     }
   }
+  //We update the format to have an extra zero if the number shown is just a digit EX: 7 -> 07
   let h = hours < 10 ? "0" + hours : hours;
   let m = minutes < 10 ? "0" + minutes : minutes;
   let s = seconds < 10 ? "0" + seconds : seconds;
@@ -27,6 +29,10 @@ function watchStart() {
   if (timer !== null) {
     clearInterval(timer);
   }
+  //Here we specify the number of miliseconds we want to show
+  //If 10 miliseconds have passed, then the last digit of miliseconds is increased by 1
+  //Because we have 100 on the stopwatch, and there are 1000 miliseconds in a second
+  //If we want a display of 1000, then we leave there (stopwatch, 1)
   timer = setInterval(stopwatch, 10);
 }
 function watchStop() {
@@ -37,6 +43,7 @@ function watchReset() {
   [seconds, minutes, hours, milisec] = [0, 0, 0, 0];
   displayTime.innerHTML = "00:00:00:00";
 }
+//The snack bar notification
 let toastBox = document.getElementById("toastBox");
 let startMsg =
   '<i class="fa-solid fa-stopwatch"></i>You have started the watch !';
